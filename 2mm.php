@@ -356,19 +356,27 @@ $gr=0;
 $groups=[];
 $studentsCount=[];
 
-foreach ($list as $array=>value){
-	isset($array[i])
-	$group=$students['group'];
-	$studentsCount[$group]=1;
-	$studentsCount[$group]++;
+foreach ($list as $student){
+	$group=$student['group'];
+	if (isset($studentsCount[$group])){
+		
+		
+		$studentsCount[$group]++;
+	}
+	else {
+		$studentsCount[$group]=1;
+	}
 }
-echo implode ('-', $gr, '-', $studentsCount);
-
-foreach ($list as $array){
-	$groups[]=$array['group'];
+//var_dump (array_values($studentsCount));
+arsort($studentsCount);
+foreach ($studentsCount as $group=>$count){
+echo "<p>"."В группе ".$group.": ".$count. "студентов"."</p>"  ;
 }
+//foreach ($list as $array){
+//	$groups[]=$array['group'];
+//}
 
-$gr= array_unique($groups);
-sort ($gr);
-echo implode ('-', $gr);
+//$gr= array_unique($groups);
+//sort ($gr);
+//echo implode ('-', $gr);
 
